@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Điểm Trung Bình</title>
+    <script>
+        // Hàm tính điểm trung bình
+        function tinhDiemTrungBinh() {
+            // Lấy giá trị điểm của các môn học
+            var toan = parseFloat(document.getElementById("toan").value);
+            var ly = parseFloat(document.getElementById("ly").value);
+            var hoa = parseFloat(document.getElementById("hoa").value);
+
+            // Kiểm tra nếu các giá trị nhập vào không phải số hoặc bỏ trống
+            if (isNaN(toan) || isNaN(ly) || isNaN(hoa)) {
+                alert("Vui lòng nhập đầy đủ điểm các môn!");
+                return;
+            }
+
+            // Tính điểm trung bình
+            var diemTrungBinh = (toan + ly + hoa) / 3;
+
+            // Hiển thị kết quả
+            document.getElementById("ketQua").innerHTML = "Điểm trung bình là: " + diemTrungBinh.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+<h1>Tính Điểm Trung Bình 3 Môn</h1>
+
+<form>
+    <label for="toan">Điểm Toán:</label>
+    <input type="number" id="toan" name="toan" placeholder="Nhập điểm Toán"><br><br>
+
+    <label for="ly">Điểm Lý:</label>
+    <input type="number" id="ly" name="ly" placeholder="Nhập điểm Lý"><br><br>
+
+    <label for="hoa">Điểm Hóa:</label>
+    <input type="number" id="hoa" name="hoa" placeholder="Nhập điểm Hóa"><br><br>
+
+    <button type="button" onclick="tinhDiemTrungBinh()">Tính điểm trung bình</button>
+</form>
+
+<p id="ketQua"></p>
+</body>
+</html>
