@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuyển đổi nhiệt độ</title>
+  <script>
+    function chuyenDoiNhietDo() {
+      // Nhập giá trị độ Celsius từ người dùng
+      let doCelsius = parseFloat(document.getElementById("celsius").value);
+
+      // Kiểm tra nếu người dùng nhập không phải là số
+      if (isNaN(doCelsius)) {
+        document.getElementById("ketQua").innerHTML = "Vui lòng nhập giá trị hợp lệ!";
+        return;
+      }
+
+      // Chuyển đổi từ Celsius sang Fahrenheit
+      let doFahrenheit = (doCelsius * 9 / 5) + 32;
+
+      // Hiển thị kết quả
+      document.getElementById("ketQua").innerHTML = doCelsius + " độ C bằng " + doFahrenheit.toFixed(2) + " độ F";
+    }
+  </script>
+</head>
+<body>
+<h1>Chuyển đổi nhiệt độ từ Celsius sang Fahrenheit</h1>
+<label for="celsius">Nhập nhiệt độ ở độ Celsius:</label>
+<input type="number" id="celsius" placeholder="Nhập độ C">
+<button onclick="chuyenDoiNhietDo()">Chuyển đổi</button>
+
+<h3 id="ketQua"></h3>
+</body>
+</html>

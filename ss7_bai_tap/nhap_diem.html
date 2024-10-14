@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính điểm trung bình</title>
+  <script>
+    function tinhDiem() {
+      // Nhập điểm các môn từ người dùng
+      let diemLy = parseFloat(prompt("Nhập điểm Vật lý:"));
+      let diemHoa = parseFloat(prompt("Nhập điểm Hóa học:"));
+      let diemSinh = parseFloat(prompt("Nhập điểm Sinh học:"));
+
+      // Kiểm tra nếu giá trị nhập vào không phải là số thì thông báo lỗi
+      if (isNaN(diemLy) || isNaN(diemHoa) || isNaN(diemSinh)) {
+        alert("Vui lòng nhập giá trị là số cho tất cả các môn!");
+        return;
+      }
+
+      // Tính tổng điểm
+      let tongDiem = diemLy + diemHoa + diemSinh;
+
+      // Tính điểm trung bình
+      let diemTrungBinh = tongDiem / 3;
+
+      // Hiển thị kết quả trên trang web
+      document.getElementById("ketQua").innerHTML = `
+                <p>Tổng điểm của 3 môn là: ${tongDiem}</p>
+                <p>Điểm trung bình của 3 môn là: ${diemTrungBinh.toFixed(2)}</p>
+            `;
+    }
+  </script>
+</head>
+<body>
+<h1>Tính tổng và điểm trung bình các môn</h1>
+<button onclick="tinhDiem()">Nhập điểm và tính</button>
+
+<div id="ketQua"></div>
+</body>
+</html>
