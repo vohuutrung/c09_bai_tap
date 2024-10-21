@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Đoán Số</title>
+</head>
+<body>
+<h1>Chơi Game Đoán Số</h1>
+<button onclick="playGame()">Chơi</button>
+
+<script>
+  function playGame() {
+    const min = parseInt(prompt("Nhập số tối thiểu:"));
+    const max = parseInt(prompt("Nhập số tối đa:"));
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    let guess;
+
+    while (true) {
+      guess = parseInt(prompt("Nhập số bạn đoán:"));
+
+      if (guess === randomNumber) {
+        alert("Chúc mừng! Bạn đã đoán đúng.");
+        break;
+      } else if (guess > randomNumber) {
+        alert("Số bạn đoán lớn hơn số ngẫu nhiên. Hãy thử lại!");
+      } else {
+        alert("Số bạn đoán nhỏ hơn số ngẫu nhiên. Hãy thử lại!");
+      }
+      if (attempts === maxAttempts) {
+        alert(`Bạn đã hết lượt đoán. Số chính xác là: ${randomNumber}.`);
+      }
+    }
+  }
+</script>
+</body>
+</html>

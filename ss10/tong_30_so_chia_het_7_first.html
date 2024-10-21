@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính tổng số chia hết cho 7</title>
+</head>
+<body>
+<script>
+  let count = 0;
+  let sum = 0;
+  let number = 1;
+
+  while (count < 30) {
+    if (number % 7 === 0) {
+      sum += number;
+      count++;
+    }
+    number++;
+  }
+
+  console.log("Tổng của 30 số chia hết cho 7 đầu tiên là:", sum);
+</script>
+</body>
+</html>
