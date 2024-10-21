@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<h1>Giải phương trình bậc 2 (ax² + bx + c = 0)</h1>
+<input type="number" id="a" placeholder="Nhập a">
+<input type="number" id="b" placeholder="Nhập b">
+<input type="number" id="c" placeholder="Nhập c">
+<button onclick="giaiPTBac2()">Giải phương trình</button>
+<p id="result"></p>
+
+<script>
+  function giaiPTBac2() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let c = parseFloat(document.getElementById("c").value);
+    let result = document.getElementById("result");
+
+    if (a === 0) {
+      if (b === 0) {
+        result.innerHTML = (c === 0) ? "Phương trình có vô số nghiệm." : "Phương trình vô nghiệm.";
+      } else {
+        let x = -c / b;
+        result.innerHTML = `Nghiệm của phương trình bậc 1 là: x = ${x}`;
+      }
+    } else {
+      let delta = b * b - 4 * a * c;
+      if (delta < 0) {
+        result.innerHTML = "Phương trình vô nghiệm.";
+      } else if (delta === 0) {
+        let x = -b / (2 * a);
+        result.innerHTML = `Phương trình có nghiệm kép: x = ${x}`;
+      } else {
+        let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+        result.innerHTML = `Phương trình có 2 nghiệm phân biệt: x1 = ${x1}, x2 = ${x2}`;
+      }
+    }
+  }
+</script>
+</body>
+</html>

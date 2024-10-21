@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra tuổi hợp lệ</title>
+</head>
+<body>
+<h1>Kiểm tra tuổi hợp lệ</h1>
+<input type="number" id="tuoi" placeholder="Nhập tuổi">
+<button onclick="kiemTraTuoi()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function kiemTraTuoi() {
+    let tuoi = parseInt(document.getElementById("tuoi").value);
+    let result = document.getElementById("result");
+
+    if (tuoi > 0 && tuoi < 120) {
+      result.innerHTML = `${tuoi} là tuổi hợp lệ.`;
+    } else {
+      result.innerHTML = `${tuoi} không phải là tuổi hợp lệ.`;
+    }
+  }
+</script>
+</body>
+</html>

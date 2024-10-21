@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Lãi Ngân Hàng</title>
+</head>
+<body>
+<h1>Tính Lãi Ngân Hàng (Lãi Mẹ Đẻ Lãi Con)</h1>
+<label for="principal">Nhập số tiền gốc (VNĐ): </label>
+<input type="number" id="principal" required>
+<br>
+<label for="months">Nhập số tháng cho vay: </label>
+<input type="number" id="months" required>
+<br>
+<label for="monthlyRate">Nhập lãi suất hàng tháng (%): </label>
+<input type="number" id="monthlyRate" required>
+<br>
+<button onclick="calculateInterest()">Tính lãi</button>
+
+<h2 id="interestResult"></h2>
+
+<script>
+    function calculateInterest() {
+        const principal = parseFloat(document.getElementById("principal").value);
+        const months = parseInt(document.getElementById("months").value);
+        const monthlyRate = parseFloat(document.getElementById("monthlyRate").value) / 100;
+
+        // Tính lãi mẹ đẻ lãi con
+        let totalAmount = principal;
+        for (let i = 0; i < months; i++) {
+            totalAmount += totalAmount * monthlyRate;
+        }
+
+        const interestEarned = totalAmount - principal;
+
+        document.getElementById("interestResult").innerText = `Số lãi sau ${months} tháng là: ${interestEarned.toFixed(2)} VNĐ`;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính tiền điện</title>
+</head>
+<body>
+<h1>Tính tiền điện</h1>
+<input type="number" id="soDien" placeholder="Nhập số điện tiêu thụ">
+<button onclick="tinhTienDien()">Tính</button>
+<p id="result"></p>
+
+<script>
+  function tinhTienDien() {
+    let soDien = parseInt(document.getElementById("soDien").value);
+    let tienDien = 0;
+    if (soDien <= 50) {
+      tienDien = soDien * 1678;
+    } else if (soDien <= 100) {
+      tienDien = 50 * 1678 + (soDien - 50) * 1734;
+    } else if (soDien <= 200) {
+      tienDien = 50 * 1678 + 50 * 1734 + (soDien - 100) * 2014;
+    }
+    document.getElementById("result").innerHTML = `Số tiền điện phải trả là: ${tienDien} VND`;
+  }
+</script>
+</body>
+</html>

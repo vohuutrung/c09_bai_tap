@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giải phương trình bậc 1</title>
+</head>
+<body>
+<h1>Giải phương trình bậc 1 (ax + b = 0)</h1>
+<input type="number" id="a" placeholder="Nhập a">
+<input type="number" id="b" placeholder="Nhập b">
+<button onclick="giaiPTBac1()">Giải phương trình</button>
+<p id="result"></p>
+
+<script>
+  function giaiPTBac1() {
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    let result = document.getElementById("result");
+
+    if (a === 0) {
+      if (b === 0) {
+        result.innerHTML = "Phương trình có vô số nghiệm.";
+      } else {
+        result.innerHTML = "Phương trình vô nghiệm.";
+      }
+    } else {
+      let x = -b / a;
+      result.innerHTML = `Nghiệm của phương trình là: x = ${x}`;
+    }
+  }
+</script>
+</body>
+</html>
