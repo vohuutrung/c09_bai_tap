@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính chỉ số BMI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .bmi-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .bmi-container h2 {
+      text-align: center;
+    }
+    .bmi-container label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .bmi-container input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .bmi-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .bmi-container button:hover {
+      background-color: #218838;
+    }
+    .result {
+      margin-top: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bmi-container">
+  <h2>Tính chỉ số BMI</h2>
+  <label for="weight">Cân nặng (kg):</label>
+  <input type="number" id="weight" placeholder="Nhập cân nặng của bạn">
+
+  <label for="height">Chiều cao (m):</label>
+  <input type="number" id="height" step="0.01" placeholder="Nhập chiều cao của bạn">
+
+  <button onclick="calculateBMI()">Tính BMI</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  function calculateBMI() {
+    // Lấy giá trị cân nặng và chiều cao từ người dùng
+    let weight = parseFloat(document.getElementById('weight').value);
+    let height = parseFloat(document.getElementById('height').value);
+
+    // Kiểm tra dữ liệu nhập vào có hợp lệ không
+    if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+      document.getElementById('result').innerHTML = "Vui lòng nhập giá trị hợp lệ!";
+      return;
+    }
+
+    // Tính chỉ số BMI
+    let bmi = weight / (height * height);
+    bmi = bmi.toFixed(2); // Làm tròn đến 2 chữ số thập phân
+
+    // Đánh giá tình trạng cơ thể
+    let resultText = `Chỉ số BMI của bạn là: ${bmi}. `;
+    if (bmi < 18.5) {
+      resultText += "Bạn đang gầy.";
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      resultText += "Bạn có cân nặng bình thường.";
+    } else if (bmi >= 25 && bmi <= 29.9) {
+      resultText += "Bạn đang thừa cân.";
+    } else {
+      resultText += "Bạn đang béo phì.";
+    }
+
+    // Hiển thị kết quả
+    document.getElementById('result').innerHTML = resultText;
+  }
+</script>
+
+</body>
+</html>

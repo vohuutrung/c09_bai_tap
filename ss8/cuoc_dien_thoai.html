@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tính cước điện thoại</title>
+</head>
+<body>
+<h2>Tính cước điện thoại gia đình</h2>
+<input type="number" id="minutes" placeholder="Nhập số phút gọi">
+<button onclick="tinhCuoc()">Tính cước</button>
+<p id="result7"></p>
+
+<script>
+  function tinhCuoc() {
+    let minutes = parseInt(document.getElementById('minutes').value);
+    let cost;
+
+    if (minutes <= 50) {
+      cost = minutes * 600;
+    } else if (minutes <= 100) {
+      cost = 50 * 600 + (minutes - 50) * 400;
+    } else {
+      cost = 50 * 600 + 50 * 400 + (minutes - 100) * 200;
+    }
+
+    document.getElementById('result7').innerText = "Tổng cước điện thoại là: " + cost + " VND";
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra chia hết</title>
+</head>
+<body>
+<h2>Kiểm tra a có chia hết cho b</h2>
+<input type="number" id="a" placeholder="Nhập a">
+<input type="number" id="b" placeholder="Nhập b">
+<button onclick="kiemTraChiaHet()">Kiểm tra</button>
+<p id="result1"></p>
+
+<script>
+  function kiemTraChiaHet() {
+    let a = parseInt(document.getElementById('a').value);
+    let b = parseInt(document.getElementById('b').value);
+
+    if (a % b === 0) {
+      document.getElementById('result1').innerText = a + " chia hết cho " + b;
+    } else {
+      document.getElementById('result1').innerText = a + " không chia hết cho " + b;
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiểm tra ngày trong tuần</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    input {
+      padding: 8px;
+      margin: 10px 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .result {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Kiểm tra ngày trong tuần</h2>
+  <label for="day">Nhập số từ 1 đến 7:</label>
+  <input type="number" id="day" placeholder="Nhập số tương ứng với ngày trong tuần">
+  <button onclick="checkDay()">Kiểm tra</button>
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  function checkDay() {
+    // Lấy giá trị từ người dùng nhập
+    let day = parseInt(document.getElementById('day').value);
+    let resultText;
+
+    // Sử dụng switch-case để kiểm tra loại ngày
+    switch(day) {
+      case 1:
+        resultText = "Chủ nhật là ngày cuối tuần.";
+        break;
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+        resultText = "Đây là ngày làm việc.";
+        break;
+      case 7:
+        resultText = "Thứ Bảy là ngày cuối tuần.";
+        break;
+      default:
+        resultText = "Vui lòng nhập số từ 1 đến 7!";
+        break;
+    }
+
+    // Hiển thị kết quả
+    document.getElementById('result').innerHTML = resultText;
+  }
+</script>
+
+</body>
+</html>

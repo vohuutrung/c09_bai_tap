@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xếp hạng học lực</title>
+</head>
+<body>
+<h2>Xếp hạng học lực</h2>
+<input type="number" id="test" placeholder="Điểm bài kiểm tra">
+<input type="number" id="mid" placeholder="Điểm thi giữa kỳ">
+<input type="number" id="final" placeholder="Điểm thi cuối kỳ">
+<button onclick="xepHang()">Xếp hạng</button>
+<p id="result5"></p>
+
+<script>
+  function xepHang() {
+    let test = parseFloat(document.getElementById('test').value);
+    let mid = parseFloat(document.getElementById('mid').value);
+    let final = parseFloat(document.getElementById('final').value);
+
+    let avg = (test + mid + final) / 3;
+
+    let rank;
+    if (avg >= 8.5) {
+      rank = "Giỏi";
+    } else if (avg >= 6.5) {
+      rank = "Khá";
+    } else if (avg >= 5) {
+      rank = "Trung bình";
+    } else {
+      rank = "Yếu";
+    }
+
+    document.getElementById('result5').innerText = "Xếp hạng học lực: " + rank;
+  }
+</script>
+</body>
+</html>
