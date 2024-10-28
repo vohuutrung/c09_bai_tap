@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 5: Tính lãi ngân hàng</title>
+
+</head>
+<body>
+<h1>Bài 5: Tính lãi ngân hàng</h1>
+<button onclick="calculateCompoundInterest()">Tính lãi ngân hàng</button>
+<p id="interest-result"></p>
+<script>
+  function calculateCompoundInterest() {
+    let principal = parseFloat(prompt("Nhập số tiền ban đầu:"));
+    let months = parseInt(prompt("Nhập số tháng cho vay:"));
+    let monthlyRate = parseFloat(prompt("Nhập lãi suất hàng tháng (theo %):")) / 100;
+
+    for (let i = 0; i < months; i++) {
+      principal += principal * monthlyRate;
+    }
+    document.getElementById("interest-result").innerText = "Số tiền cuối kỳ là: " + principal.toFixed(2);
+  }
+
+</script>
+</body>
+</html>

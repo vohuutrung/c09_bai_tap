@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1: In dãy Fibonacci</title>
+
+</head>
+<body>
+  <h1>In dãy Fibonacci</h1>
+<button onclick="printFibonacci()">In dãy Fibonacci</button>
+<p id="fibonacci-result"></p>
+<script> function printFibonacci() {
+  let n = 20;
+  let fib = [0, 1];
+  for (let i = 2; i < n; i++) {
+  fib[i] = fib[i - 1] + fib[i - 2];
+}
+  document.getElementById("fibonacci-result").innerText = "Dãy Fibonacci: " + fib.join(", ");
+}
+</script>
+</body>
+</html>

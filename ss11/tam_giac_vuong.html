@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 3: In tam giác vuông</title>
+
+</head>
+<body>
+<h1>Bài 3: In tam giác vuông</h1>
+<button onclick="printTriangle()">In tam giác vuông</button>
+<pre id="triangle-result"></pre>
+<script>
+  function printTriangle() {
+    let height = 5;
+    let triangle = "";
+    for (let i = 1; i <= height; i++) {
+      triangle += "* ".repeat(i) + "\n";
+    }
+    document.getElementById("triangle-result").innerText = triangle;
+  }
+
+</script>
+</body>
+</html>

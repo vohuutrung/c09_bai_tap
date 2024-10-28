@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 4: In hình chữ nhật</title>
+
+</head>
+<body>
+<h1>Bài 4: In hình chữ nhật</h1>
+<button onclick="printRectangle()">In hình chữ nhật</button>
+<pre id="rectangle-result"></pre>
+<script>
+  function printRectangle() {
+    let width = 10;
+    let height = 5;
+    let rectangle = "";
+    for (let i = 0; i < height; i++) {
+      rectangle += "* ".repeat(width) + "\n";
+    }
+    document.getElementById("rectangle-result").innerText = rectangle;
+  }
+
+
+</script>
+</body>
+</html>
