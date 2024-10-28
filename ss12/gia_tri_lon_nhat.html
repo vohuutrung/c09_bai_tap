@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 3</title>
+</head>
+<body>
+<h3>Tìm giá trị lớn nhất và tính trung bình</h3>
+<button onclick="calculate()">Tính toán</button>
+<p id="result"></p>
+
+<script>
+  function calculate() {
+    let arr = [3, 7, 12, 5, 9, 20, 15, 2, 10, 18];
+    let max = Math.max(...arr);
+    let avg = arr.reduce((sum, num) => sum + num, 0) / arr.length;
+    document.getElementById("result").innerText = `Giá trị lớn nhất: ${max}, Giá trị trung bình: ${avg}`;
+  }
+</script>
+</body>
+</html>

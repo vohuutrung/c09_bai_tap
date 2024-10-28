@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 7</title>
+</head>
+<body>
+<h3>Xoá phần tử V khỏi mảng</h3>
+<input type="number" id="valueV" placeholder="Nhập giá trị V">
+<button onclick="removeValue()">Xoá</button>
+<p id="result"></p>
+
+<script>
+  function removeValue() {
+    let arr = [3, 7, 12, 5, 9, 20, 15, 2, 10, 18];
+    let V = parseInt(document.getElementById("valueV").value);
+    let index = arr.indexOf(V);
+    if (index !== -1) {
+      arr.splice(index, 1);
+      arr.push(0);
+    }
+    document.getElementById("result").innerText = `Mảng sau khi xoá: ${arr}`;
+  }
+</script>
+</body>
+</html>

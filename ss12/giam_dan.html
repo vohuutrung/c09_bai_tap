@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 8</title>
+</head>
+<body>
+<h3>Sắp xếp mảng theo thứ tự giảm dần</h3>
+<button onclick="sortArray()">Sắp xếp</button>
+<p id="result"></p>
+
+<script>
+  function sortArray() {
+    let arr = [3, 7, 12, 5, 9, 20, 15, 2, 10, 18];
+    arr.sort((a, b) => b - a);
+    document.getElementById("result").innerText = `Mảng sau khi sắp xếp: ${arr}`;
+  }
+</script>
+</body>
+</html>

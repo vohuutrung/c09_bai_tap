@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1</title>
+</head>
+<body>
+<h3>Kiểm tra số lượng phần tử lớn hơn hoặc bằng 10</h3>
+<button onclick="checkArray()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function checkArray() {
+    let arr = [3, 7, 12, 5, 9, 20, 15, 2, 10, 18];
+    let count = arr.filter(num => num >= 10).length;
+    document.getElementById("result").innerText = `Số phần tử lớn hơn hoặc bằng 10 là: ${count}`;
+  }
+</script>
+</body>
+</html>

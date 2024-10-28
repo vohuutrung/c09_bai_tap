@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2</title>
+</head>
+<body>
+<h3>Tìm phần tử lớn nhất và vị trí</h3>
+<button onclick="findMax()">Tìm phần tử lớn nhất</button>
+<p id="result"></p>
+
+<script>
+  function findMax() {
+    let arr = [3, 7, 12, 5, 9, 20, 15, 2, 10, 18];
+    let max = Math.max(...arr);
+    let index = arr.indexOf(max);
+    document.getElementById("result").innerText = `Phần tử lớn nhất là ${max}, tại vị trí ${index}`;
+  }
+</script>
+</body>
+</html>
+
+

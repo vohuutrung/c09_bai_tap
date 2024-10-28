@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 5</title>
+</head>
+<body>
+<h3>Đếm số nguyên âm trong một chuỗi</h3>
+<input type="text" id="inputString" placeholder="Nhập chuỗi">
+<button onclick="countNegativeNumbers()">Đếm</button>
+<p id="result"></p>
+
+<script>
+  function countNegativeNumbers() {
+    let arr = document.getElementById("inputString").value.split(" ").map(Number);
+    let count = arr.filter(num => num < 0).length;
+    document.getElementById("result").innerText = `Số lượng số nguyên âm: ${count}`;
+  }
+</script>
+</body>
+</html>

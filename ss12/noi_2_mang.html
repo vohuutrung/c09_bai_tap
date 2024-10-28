@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 9 - Nối hai mảng</title>
+</head>
+<body>
+<h2>Bài 9 - Nối hai mảng</h2>
+<button onclick="mergeArrays()">Nối mảng</button>
+<p id="result9"></p>
+
+<script>
+  function mergeArrays() {
+    // Khởi tạo hai mảng a và b với 10 phần tử mỗi mảng
+    let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let b = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+    // Tạo mảng c với các phần tử từ mảng b và a
+    let c = b.concat(a);
+
+    // Hiển thị kết quả
+    document.getElementById("result9").innerText = "Mảng c sau khi nối: " + c.join(", ");
+  }
+</script>
+</body>
+</html>
