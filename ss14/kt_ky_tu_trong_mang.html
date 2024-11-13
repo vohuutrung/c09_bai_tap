@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 9 - Kiểm Tra Ký Tự Trong Mảng</title>
+</head>
+<body>
+<h2>Kiểm tra ký tự trong mảng</h2>
+<script>
+  function countCharacter(arr, char) {
+    let count = arr.filter(c => c === char).length;
+    return count > 0 ? count : -1;
+  }
+
+  // Gọi hàm
+  let arr = ['a', 'b', 'c', 'a', 'd'];
+  let char = 'a';
+  let result = countCharacter(arr, char);
+  document.write(`Số lần xuất hiện của '${char}' là: ${result}`);
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 4 - Kiểm Tra Ký Tự Số</title>
+</head>
+<body>
+<h2>Kiểm tra ký tự có phải là số</h2>
+<script>
+  function isDigit(char) {
+    return !isNaN(char);
+  }
+
+  // Gọi hàm
+  let char = '5';
+  document.write(`'${char}' là ký tự số: ${isDigit(char)}`);
+</script>
+</body>
+</html>

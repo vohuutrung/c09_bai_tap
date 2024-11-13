@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 6 - Kiểm Tra Số Nguyên Dương</title>
+</head>
+<body>
+<h2>Kiểm tra số có phải là nguyên dương</h2>
+<script>
+  function isPositiveInteger(num) {
+    return num > 0 && Number.isInteger(num);
+  }
+
+  // Gọi hàm
+  let num = 7;
+  document.write(`${num} là số nguyên dương: ${isPositiveInteger(num)}`);
+</script>
+</body>
+</html>

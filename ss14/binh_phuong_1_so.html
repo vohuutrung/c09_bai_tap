@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 1: Tính bình phương</title>
+  <script>
+    function square(num) {
+      return num * num;
+    }
+
+    function showSquare() {
+      let result = square(499);
+      document.getElementById("result").innerText = "Bình phương của 499 là: " + result;
+    }
+  </script>
+</head>
+<body onload="showSquare()">
+<h2>Bài 1: Tính bình phương của một số</h2>
+<p id="result"></p>
+</body>
+</html>

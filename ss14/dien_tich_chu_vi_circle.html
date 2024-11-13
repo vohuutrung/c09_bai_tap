@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2: Diện tích và Chu vi Hình tròn</title>
+  <script>
+    function circleArea(radius) {
+      return Math.PI * radius * radius;
+    }
+
+    function circleCircumference(radius) {
+      return 2 * Math.PI * radius;
+    }
+
+    function showCircleCalculations() {
+      let area = circleArea(5);
+      let circumference = circleCircumference(5);
+      document.getElementById("result").innerText = "Diện tích: " + area + "\nChu vi: " + circumference;
+    }
+  </script>
+</head>
+<body onload="showCircleCalculations()">
+<h2>Bài 2: Tính diện tích và chu vi hình tròn</h2>
+<p id="result"></p>
+</body>
+</html>
