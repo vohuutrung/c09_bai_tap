@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý học viên CODEGYM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Quản lý học viên CODEGYM</h1>
+<table id="studentTable">
+    <thead>
+    <tr>
+        <th>Mã học viên</th>
+        <th>Tên</th>
+        <th>Lớp</th>
+        <th>Email</th>
+        <th>Ngày sinh</th>
+        <th>Module</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<button onclick="addStudent()">Thêm mới học viên</button>
+<button onclick="editStudent()">Sửa thông tin học viên</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+
+<script>
+    const students = [];
+
+    function renderTable() {
+        const tbody = document.querySelector("#studentTable tbody");
+        tbody.innerHTML = "";
+
+        students.forEach(student => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+      <td>${student.id}</td>
+      <td>${student.name}</td>
+      <td>${student.class}</td>
+      <td>${student.email}</td>
+      <td>${student.dob}</td>
+      <td>${student.module}</td>
+    `;
+            tbody.appendChild(row);
+        });
+    }
+
+    function isValidStudent(student) {
+        const idPattern = /^HV-\d{4}$/;
+        const namePattern = /^.{1,50}$/;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const datePattern = /^\d{2}\/\d{2}\/\d{4}$/;
+        const modulePattern = /^[1-6]$/;
+
+        if (!idPattern.test(student.id)) {
+            alert("Mã học viên phải có định dạng HV-XXXX!");
+            return false;
+        }
+        if (!namePattern.test(student.name)) {
+            alert("Tên học viên không được vượt quá 50 ký tự!");
+            return false;
+        }
+        if (!emailPattern.test(student.email)) {
+            alert("Email không hợp lệ!");
+            return false;
+        }
+        if (!datePattern.test(student.dob)) {
+            alert("Ngày sinh phải đúng định dạng dd/mm/yyyy!");
+            return false;
+        }
+        if (!modulePattern.test(student.module)) {
+            alert("Module chỉ được nhập từ 1 đến 6!");
+            return false;
+        }
+        return true;
+    }
+
+    function addStudent() {
+        const id = prompt("Nhập mã học viên (HV-XXXX):");
+        const name = prompt("Nhập tên học viên:");
+        const studentClass = prompt("Nhập lớp:");
+        const email = prompt("Nhập email:");
+        const dob = prompt("Nhập ngày sinh (dd/mm/yyyy):");
+        const module = prompt("Nhập module (1-6):");
+
+        const newStudent = { id, name, class: studentClass, email, dob, module };
+
+        if (!isValidStudent(newStudent)) return;
+
+        if (students.some(student => student.id === id)) {
+            alert("Mã học viên đã tồn tại!");
+            return;
+        }
+
+        students.push(newStudent);
+        renderTable();
+    }
+
+    function editStudent() {
+        const id = prompt("Nhập mã học viên cần sửa:");
+        const index = students.findIndex(student => student.id === id);
+
+        if (index === -1) {
+            alert("Mã học viên không tồn tại!");
+            return;
+        }
+
+        const name = prompt("Nhập tên học viên mới:", students[index].name);
+        const studentClass = prompt("Nhập lớp mới:", students[index].class);
+        const email = prompt("Nhập email mới:", students[index].email);
+        const dob = prompt("Nhập ngày sinh mới (dd/mm/yyyy):", students[index].dob);
+        const module = prompt("Nhập module mới (1-6):", students[index].module);
+
+        const updatedStudent = { id, name, class: studentClass, email, dob, module };
+
+        if (!isValidStudent(updatedStudent)) return;
+
+        students[index] = updatedStudent;
+        renderTable();
+    }
+
+    function deleteStudent() {
+        const id = prompt("Nhập mã học viên cần xóa:");
+        const index = students.findIndex(student => student.id === id);
+
+        if (index === -1) {
+            alert("Mã học viên không tồn tại!");
+            return;
+        }
+
+        const confirmDelete = confirm("Bạn có chắc muốn xóa học viên này?");
+        if (confirmDelete) {
+            students.splice(index, 1);
+            renderTable();
+        }
+    }
+
+    // Hiển thị danh sách ban đầu (nếu có)
+    renderTable();
+
+</script>
+</body>
+</html>

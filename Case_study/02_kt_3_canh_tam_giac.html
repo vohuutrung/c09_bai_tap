@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 2 - Kiểm Tra Tam Giác</title>
+</head>
+<body>
+<h2>Kiểm tra 3 cạnh có phải là tam giác</h2>
+<script>
+  function checkTriangle(x, y, z) {
+    if (x + y <= z || x + z <= y || y + z <= x) {
+      return "Không phải là cạnh của 1 tam giác";
+    } else if (x * x + y * y === z * z || x * x + z * z === y * y || y * y + z * z === x * x) {
+      return "Là 3 cạnh của 1 tam giác vuông";
+    } else {
+      return "Chỉ là 3 cạnh của một tam giác";
+    }
+  }
+
+  let x = parseFloat(prompt("Nhập cạnh thứ nhất:"));
+  let y = parseFloat(prompt("Nhập cạnh thứ hai:"));
+  let z = parseFloat(prompt("Nhập cạnh thứ ba:"));
+
+  let result = checkTriangle(x, y, z);
+  document.write(`Kết quả: ${result}`);
+</script>
+</body>
+</html>

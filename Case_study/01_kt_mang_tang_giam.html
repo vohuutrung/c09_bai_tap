@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 1 - Kiểm Tra Mảng Tăng Dần Đều</title>
+</head>
+<body>
+<h2>Nhập mảng số và kiểm tra tăng dần đều</h2>
+<script>
+  function isArrayIncreasing(arr) {
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] <= arr[i - 1]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  let arr = [];
+  let n = prompt("Nhập số lượng phần tử của mảng (tối đa 20):");
+  n = parseInt(n);
+
+  if (n > 0 && n <= 20) {
+    for (let i = 0; i < n; i++) {
+      let element = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+      arr.push(element);
+    }
+
+    document.write(`Mảng vừa nhập: ${arr.join(", ")}<br>`);
+    document.write(`Mảng tăng dần đều: ${isArrayIncreasing(arr) ? "TRUE" : "FALSE"}`);
+  } else {
+    document.write("Số lượng phần tử không hợp lệ!");
+  }
+</script>
+</body>
+</html>

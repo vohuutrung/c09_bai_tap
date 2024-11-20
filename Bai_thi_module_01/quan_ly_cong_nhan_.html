@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Quản Lý Công Nhân</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .container {
+      margin-bottom: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin-right: 10px;
+    }
+  </style>
+  <script>
+    // Tạo cn
+    class CongNhan {
+      constructor(stt, hoTen, ngaySinh, diaChi, luong, chucVu) {
+        this.stt = stt;
+        this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+        this.diaChi = diaChi;
+        this.luong = luong;
+        this.chucVu = chucVu;
+      }
+    }
+
+    // Ds cn
+    let danhSachCongNhan = [];
+
+    // Hàm thêm cn
+    function themCongNhan() {
+      let stt = danhSachCongNhan.length + 1;
+      let hoTen = prompt("Nhập họ và tên công nhân:");
+      let ngaySinh = prompt("Nhập ngày sinh (dd/mm/yyyy):");
+      let diaChi = prompt("Nhập địa chỉ:");
+      let luong = prompt("Nhập lương:");
+      let chucVu = prompt("Nhập chức vụ:");
+
+      // Tạo cn mới và thêm vào ds
+      let congNhan = new CongNhan(stt, hoTen, ngaySinh, diaChi, luong, chucVu);
+      danhSachCongNhan.push(congNhan);
+
+      // Sắp xếp ds theo họ và tên
+      danhSachCongNhan.sort((a, b) => a.hoTen.localeCompare(b.hoTen));
+
+      // Hiển thị lại ds
+      hienThiDanhSach();
+    }
+
+    // Hàm hiển thị ds cn
+    function hienThiDanhSach() {
+      let tableBody = document.getElementById("table-body");
+      tableBody.innerHTML = ""; // Xóa dữ liệu cũ trong bảng
+
+      // Hiển thị cn
+      danhSachCongNhan.forEach(congNhan => {
+        let row = document.createElement("tr");
+
+        let cellSTT = document.createElement("td");
+        cellSTT.textContent = congNhan.stt;
+        row.appendChild(cellSTT);
+
+        let cellHoTen = document.createElement("td");
+        cellHoTen.textContent = congNhan.hoTen;
+        row.appendChild(cellHoTen);
+
+        let cellNgaySinh = document.createElement("td");
+        cellNgaySinh.textContent = congNhan.ngaySinh;
+        row.appendChild(cellNgaySinh);
+
+        let cellDiaChi = document.createElement("td");
+        cellDiaChi.textContent = congNhan.diaChi;
+        row.appendChild(cellDiaChi);
+
+        let cellLuong = document.createElement("td");
+        cellLuong.textContent = congNhan.luong;
+        row.appendChild(cellLuong);
+
+        let cellChucVu = document.createElement("td");
+        cellChucVu.textContent = congNhan.chucVu;
+        row.appendChild(cellChucVu);
+
+        // Thêm dòng vào bảng
+        tableBody.appendChild(row);
+      });
+    }
+  </script>
+</head>
+<body>
+
+<h1>Quản Lý Công Nhân</h1>
+
+<div class="container">
+  <button onclick="themCongNhan()">Thêm Công Nhân</button>
+</div>
+
+<h2>Danh Sách Công Nhân</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Họ và Tên</th>
+    <th>Ngày Sinh</th>
+    <th>Địa Chỉ</th>
+    <th>Lương</th>
+    <th>Chức Vụ</th>
+  </tr>
+  </thead>
+  <tbody id="table-body">
+  <!-- Danh sách cn-->
+  </tbody>
+</table>
+
+</body>
+</html>

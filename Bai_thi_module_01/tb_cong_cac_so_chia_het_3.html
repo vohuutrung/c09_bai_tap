@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Thêm Phần Tử Vào Mảng</title>
+    <script>
+        // Hàm thêm pt vào mảng, kt số pt ko quá 50
+        function addElementToArray(arr, element) {
+            if (arr.length < 50) {
+                arr.push(element);
+                return "Phần tử " + element + " đã được thêm vào mảng!";
+            } else {
+                return "Mảng đã đầy, không thể thêm.";
+            }
+        }
+
+        // Hàm hiển thị mảng
+        function displayArray(arr) {
+            return "Mảng hiện tại: " + arr.join(", ");
+        }
+
+        // Hàm tính tb cộng các số : hết cho 3
+        function averageOfDivisibleByThree(arr) {
+            let sum = 0;
+            let count = 0;
+
+            // Duyệt các pt trong mảng
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 3 === 0) {
+                    sum += arr[i];
+                    count++;
+                }
+            }
+
+            // Nếu có số chia hết cho 3, tính tb cộng
+            if (count > 0) {
+                return "Trung bình cộng các số chia hết cho 3: " + (sum / count);
+            } else {
+                return "Không có số nào chia hết cho 3.";
+            }
+        }
+
+        // Hàm chính
+        function main() {
+            let arr = [];
+            let message = "";
+
+            // Hỏi có muốn thêm pt vào mảng tiếp hay ko
+            let continueAdding = true;
+            while (continueAdding) {
+                let userInput = prompt("Nhập một pt số nguyên (hoặc nhấn Hủy để dừng):");
+
+                if (userInput !== null) {
+                    // Chuyển đổi giá trị nhập thành số nguyên
+                    let element = parseInt(userInput);
+
+                    // Kt xem nhập một số có hợp lệ ko
+                    if (!isNaN(element)) {
+                        message += addElementToArray(arr, element) + "\n";
+                    } else {
+                        alert("Vui lòng nhập một số nguyên hợp lệ!");
+                    }
+                } else {
+                    // Nhấn Hủy, dừng thêm pt
+                    continueAdding = false;
+                }
+            }
+
+            // Kt và hiển thị mảng
+            message += displayArray(arr) + "\n";
+
+            // Kt số pt không quá 50
+            if (arr.length <= 50) {
+                message += "Số phần tử trong mảng không vượt quá 50.\n";
+            } else {
+                message += "Mảng có số phần tử vượt quá 50!\n";
+            }
+
+            // Tb cộng các số chia hết cho 3
+            message += averageOfDivisibleByThree(arr);
+
+            // Hiển thị kq trong hộp hội thoại
+            alert(message);
+        }
+
+        // Gọi hàm chính khi trang tải
+        window.onload = main;
+    </script>
+</head>
+<body>
+<h1>Thêm Phần Tử Vào Mảng</h1>
+<p>Nhập các phần tử vào mảng và kết quả sẽ hiển thị trong hộp hội thoại.</p>
+</body>
+</html>
